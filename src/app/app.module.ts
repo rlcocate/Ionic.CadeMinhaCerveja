@@ -5,26 +5,37 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+
+import { CervejasProvider } from '../providers/cervejas/cervejas';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { FIREBASE_CONFIG } from './firebase-config';
+import { ListarCervejasPage } from '../pages/listar-cervejas/listar-cervejas';
+import { ExibirMensagemProvider } from '../providers/exibir-mensagem/exibir-mensagem';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ListarCervejasPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    ListarCervejasPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CervejasProvider,
+    ExibirMensagemProvider,
+    ExibirMensagemProvider
   ]
 })
 export class AppModule {}

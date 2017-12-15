@@ -1,0 +1,46 @@
+<!--
+  Generated template for the InserirCervejaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cerveja</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Cerveja</ion-label>
+      <ion-select [(ngModel)]="cerveja.nome">
+        <ion-option value="Amstel">Amstel</ion-option>
+        <ion-option value="Brahma">Brahma</ion-option>
+        <ion-option value="Brahma Weiss">Brahma Weiss</ion-option>
+        <ion-option value="Budweiser">Budweiser</ion-option>
+        <ion-option value="Eisenbahn">Eisenbahn</ion-option>
+        <ion-option value="Heineken">Heineken</ion-option>
+        <ion-option value="Original">Original</ion-option>
+        <ion-option value="Outras Marcas">Outras Marcas</ion-option>
+        <ion-option value="Skol">Skol</ion-option>
+        <ion-option value="Serra Malte">Serra Malte</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label stacked>Quanto?</ion-label>
+    <ion-input type="number" [(ngModel)]="cerveja.valor"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label stacked>Onde? (Nome do Estabelecimento)</ion-label>
+    <ion-input type="text" [(ngModel)]="cerveja.estabelecimentoNome"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="salvar(cerveja);">Salvar</button>
+</ion-content>

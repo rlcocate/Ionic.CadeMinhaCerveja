@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cervejas =D</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <ion-item-sliding *ngFor="let cerveja of listaCervejas | async">
+    <ion-item>
+      <p>
+        <ion-note item-start>
+          <strong>{{cerveja.nome}}</strong>
+        </ion-note>
+      </p>
+      <p>
+        <ion-note item-start>
+          {{cerveja.estabelecimentoNome}}
+        </ion-note>
+        <ion-note item-end>Quanto? {{cerveja.valor | currency:'BRL': '1.2-2'}}</ion-note>
+      </p>
+    </ion-item>
+
+    <ion-item-options side="right">
+
+       <button navPush="InserirCervejaPage" [navParams]="{cerveja:cerveja}" ion-button>
+         <ion-icon name="create"></ion-icon>
+           Alterar
+       </button>
+
+       <button (click)="excluir(cerveja)" ion-button>
+         <ion-icon name="trash"></ion-icon>
+           Excluir
+       </button>
+
+     </ion-item-options>
+
+  </ion-item-sliding>
+
+</ion-list>
+  <ion-fab right bottom>
+    <button ion-fab navPush="InserirCervejaPage" [navParams]="{cerveja:null}" color="primary">
+      <ion-icon name="add" color="light" medium></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
